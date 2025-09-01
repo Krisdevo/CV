@@ -1,0 +1,495 @@
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+#burger {
+  position: absolute;
+  width: 100%;
+  right: 0;
+  top: 0;
+  font-size: 20px;
+  display: none;
+}
+
+#open,
+#close {
+  font-size: 60px;
+  right: 20px;
+  text-decoration: none;
+  color: white;
+  z-index: 2;
+  position: absolute;
+}
+
+/* NAV MOBILE */
+.burger-nav {
+  top: 60px; /* sous le header */
+  width: 100%;
+  background: #61410D;
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  transform: translateY(-300px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.burger-nav a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+.burger-nav a:hover {
+  color: #D37204;
+  text-decoration: underline !important;
+  text-underline-offset: 6px;
+}
+
+/* Quand menu ouvert */
+#burger:target .burger-nav {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* On affiche/masque les boutons */
+#burger:target #open {
+  display: none;
+}
+
+#burger:not(:target) #close {
+  display: none;
+}
+
+/* NAV DESKTOP */
+.desktop-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.desktop-nav a {
+  text-decoration: none;
+  color: white;
+  margin-right: 20px;
+}
+.desktop-nav a:hover {
+  color: #D37204;
+  text-decoration: underline !important;
+  text-underline-offset: 6px;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 1000px) {
+  #burger {
+    display: block;
+  }
+  .desktop-nav {
+    display: none;
+  }
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Russo One";
+  color: rgb(249, 238, 238);
+  letter-spacing: 3px;
+  scroll-behavior: smooth;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+body {
+  width: 100%;
+  background: linear-gradient(180deg, rgb(17, 50, 74) 0%, rgb(21, 102, 163) 50%, rgb(31, 158, 255) 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+body .scroll-haut {
+  text-decoration: none;
+  font-weight: 600;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  font-size: 30px;
+  background-color: #61410D;
+  color: #D37204 !important;
+  width: 50px;
+  height: 50px;
+  border-radius: 1rem;
+  text-align: center;
+  border: 3px solid #D37204;
+  animation: fade;
+  animation-timeline: scroll(y);
+  animation-range: 0 10%;
+}
+body header {
+  background-color: #6e4d17;
+  position: relative;
+  padding: 10px 20px;
+  width: 100%;
+}
+body header h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+body .welcome {
+  position: absolute;
+  z-index: 1000;
+  min-height: 100%;
+  width: 100%;
+  margin: auto;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background-color: rgba(97, 65, 13, 0.8);
+  text-align: center;
+}
+body .welcome .picOfMe {
+  height: 200px;
+  width: 300px;
+  border-radius: 1rem;
+  transition: opacity 0.1s ease-in;
+  opacity: 1;
+}
+body .welcome .picOfMe.fade-out {
+  opacity: 0;
+}
+body .welcome button {
+  padding: 1rem;
+  width: 100px;
+  border-radius: 1rem;
+  border: none;
+  box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.4235294118);
+  cursor: pointer;
+  text-align: center;
+}
+body .welcome .yes {
+  background-color: rgb(25, 174, 25);
+}
+body .welcome .no {
+  background-color: rgb(219, 36, 36);
+}
+body .welcome .ok {
+  display: none;
+  background-color: rgb(25, 174, 25);
+  width: 120px;
+}
+body section {
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+body section .subtitle {
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.4235294118);
+  background-color: #6e4d17;
+}
+body .aboutTitle {
+  width: 250px;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.4235294118);
+  background-color: #6e4d17;
+  text-align: center;
+  margin: auto;
+  margin-top: 1rem;
+}
+body #aboutMe .card {
+  height: 200px;
+  width: 90%;
+  background-color: #6e4d17;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 1rem;
+  box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.4235294118);
+}
+body #aboutMe .card .pic-container {
+  width: 45%;
+}
+body #aboutMe .card .pic-container .picCard {
+  background-image: center/cover;
+  width: 9rem;
+  height: 9rem;
+}
+body #aboutMe .card .aboutText {
+  width: 45%;
+}
+body #aboutMe .card .aboutText p {
+  color: white;
+  margin-top: 0.5rem;
+  margin: auto;
+}
+body #aboutMe .why p {
+  text-align: center;
+  line-height: 2;
+}
+body #exp nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 2rem;
+}
+body #exp nav a {
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+body #exp nav a:hover {
+  color: #D37204;
+  text-decoration: underline !important;
+  text-underline-offset: 6px;
+}
+body #exp nav a.active {
+  color: #D37204;
+}
+body #exp .exp {
+  text-align: center;
+  line-height: 2;
+  width: 90%;
+}
+body #exp .exp .date {
+  font-style: italic;
+}
+body #exp .study {
+  display: none;
+  text-align: center;
+  width: 90%;
+}
+body #exp .icon {
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+body #exp ul {
+  list-style: none;
+}
+body #exp ul li {
+  margin: 1rem 0;
+  line-height: 2;
+}
+body #skill nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 3rem;
+}
+body #skill nav a {
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+body #skill nav a:hover {
+  color: #D37204;
+  text-decoration: underline !important;
+  text-underline-offset: 6px;
+}
+body #skill nav a.active {
+  color: #D37204;
+}
+body #skill ul {
+  list-style: none;
+}
+body #skill ul li {
+  margin: 1rem 0;
+  line-height: 2;
+}
+body #skill .icon {
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+body #skill .front,
+body #skill .back,
+body #skill .other {
+  text-align: center;
+}
+body #contact .phone,
+body #contact .mail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body #contact .phone a,
+body #contact .mail a {
+  margin: 1.5rem 0;
+  text-decoration: none;
+  font-size: 1rem;
+}
+body footer {
+  background-color: #6e4d17;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body footer .social {
+  display: flex;
+  flex-direction: row;
+}
+body footer a img {
+  height: 8rem;
+  width: 8rem;
+}
+body footer .mail {
+  margin: 1rem 0;
+}
+body footer p {
+  font-size: 0.8rem;
+  margin: 0.5rem 0;
+}
+
+@media screen and (min-width: 600px) {
+  body #aboutMe {
+    width: 90%;
+    margin: auto;
+    margin-top: 2rem;
+  }
+  body #aboutMe .card {
+    height: 100%;
+    width: 70%;
+    padding: 1rem;
+  }
+}
+@media screen and (min-width: 800px) {
+  body .welcome .picOfMe {
+    height: 20rem;
+    width: 25rem;
+  }
+  body h2 {
+    font-size: 2.5rem;
+  }
+  body h3,
+  body section a {
+    font-size: 2rem;
+  }
+  body p,
+  body li,
+  body a,
+  body .yes,
+  body .no,
+  body .ok {
+    font-size: 1.5rem;
+  }
+  body button {
+    width: 300px;
+  }
+  body .ok {
+    width: 400px !important;
+    padding: 2rem;
+  }
+  body #exp nav a,
+  body #skill nav a {
+    font-size: 2rem;
+  }
+  body #exp .icon,
+  body #skill .icon {
+    height: 60px;
+    width: 60px;
+  }
+  body #aboutMe .card {
+    height: 100%;
+    width: 50%;
+    padding: 1rem;
+  }
+  body #contact .phone a,
+  body #contact .mail a {
+    font-size: 2rem;
+  }
+  body footer p {
+    font-size: 1rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  body #aboutMe .card {
+    height: 100%;
+    width: 40%;
+    padding: 1rem;
+  }
+  body #aboutMe .card .pic-container {
+    height: 12rem;
+    width: 12rem;
+  }
+  body #aboutMe .card .pic-container .picCard {
+    height: 100%;
+    width: 100%;
+  }
+}
+@media screen and (min-width: 1400px) {
+  body h2 {
+    font-size: 2.5rem;
+  }
+  body h3,
+  body section a {
+    font-size: 2rem;
+  }
+  body p,
+  body li,
+  body a,
+  body .yes,
+  body .no,
+  body .ok {
+    font-size: 1.5rem;
+  }
+  body button {
+    width: 300px;
+  }
+  body .ok {
+    width: 400px !important;
+    padding: 2rem;
+  }
+  body #exp nav a,
+  body #skill nav a {
+    font-size: 2rem;
+  }
+  body #exp .icon,
+  body #skill .icon {
+    height: 60px;
+    width: 60px;
+  }
+  body #aboutMe .card {
+    height: 100%;
+    width: 40%;
+    padding: 1rem;
+  }
+  body #contact .phone a,
+  body #contact .mail a {
+    font-size: 2rem;
+  }
+  body footer p {
+    font-size: 1rem;
+  }
+}
+@media screen and (min-width: 1600px) {
+  body #aboutMe .card {
+    height: 100%;
+    width: 30%;
+    padding: 1rem;
+  }
+  body #aboutMe .card .picCard {
+    height: 10rem;
+    width: 10rem;
+  }
+}/*# sourceMappingURL=style.css.map */

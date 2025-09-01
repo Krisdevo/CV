@@ -1,0 +1,638 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import "./partials/buger.scss";
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Russo One';
+    color: rgb(249, 238, 238);
+    letter-spacing: 3px;
+    scroll-behavior: smooth;
+
+}
+
+    .no-scroll {
+  overflow: hidden;
+}
+
+body {
+
+    width: 100%;
+    background: linear-gradient(180deg, rgba(17, 50, 74, 1) 0%, rgba(21, 102, 163, 1) 50%, rgba(31, 158, 255, 1) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+
+
+
+
+
+
+
+
+
+    @keyframes fade {
+        from {
+            opacity: 0
+        }
+
+        to {
+            opacity: 1
+        }
+    }
+
+    .scroll-haut {
+
+        text-decoration: none;
+        font-weight: 600;
+        z-index: 6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        bottom: 30px;
+        right: 20px;
+        font-size: 30px;
+        background-color: #61410D;
+        color: #D37204 !important;
+        width: 50px;
+        height: 50px;
+        border-radius: 1rem;
+        text-align: center;
+        border: 3px solid #D37204;
+        animation: fade;
+        animation-timeline: scroll(y);
+        animation-range: 0 10%;
+    }
+
+    header {
+        background-color: #6e4d17;
+        position: relative;
+        padding: 10px 20px;
+        width: 100%;
+
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+
+
+    }
+
+
+
+    .welcome {
+
+        position: absolute;
+        z-index: 1000;
+        min-height: 100%;
+        width: 100%;
+        margin: auto;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        background-color: rgb(97, 65, 13, 0.8);
+        text-align: center;
+
+
+        .picOfMe {
+            height: 200px;
+            width: 300px;
+            border-radius: 1rem;
+
+            transition: opacity 0.1s ease-in;
+            opacity: 1;
+
+            &.fade-out {
+                opacity: 0;
+            }
+
+        }
+
+        button {
+            padding: 1rem;
+            width: 100px;
+            border-radius: 1rem;
+            border: none;
+            box-shadow: 0 6px 8px 0 #0000006c;
+            cursor: pointer;
+
+            text-align: center;
+
+        }
+
+        .yes {
+            background-color: rgb(25, 174, 25);
+        }
+
+        .no {
+            background-color: rgb(219, 36, 36);
+        }
+
+        .ok {
+            display: none;
+            background-color: rgb(25, 174, 25);
+            width: 120px;
+        }
+
+    }
+
+    section {
+
+        margin-top: 2rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+
+        .subtitle {
+
+            padding: 1rem;
+            border-radius: 1rem;
+            box-shadow: 0 6px 8px 0 #0000006c;
+            ;
+            background-color: #6e4d17;
+        }
+
+
+
+    }
+
+    .aboutTitle {
+        width: 250px;
+        padding: 1rem;
+        border-radius: 1rem;
+        box-shadow: 0 6px 8px 0 #0000006c;
+        background-color: #6e4d17;
+        text-align: center;
+        margin: auto;
+        margin-top: 1rem;
+    }
+
+    #aboutMe {
+
+
+        .card {
+            height: 200px;
+            width: 90%;
+            background-color: #6e4d17;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            border-radius: 1rem;
+            box-shadow: 0 6px 8px 0 #0000006c;
+
+
+            .pic-container {
+                width: 45%;
+
+                .picCard {
+
+                    background-image: center/cover;
+                    width: 9rem;
+                    height: 9rem;
+                }
+
+            }
+
+            .aboutText {
+                width: 45%;
+
+                p {
+                    color: white;
+                    margin-top: 0.5rem;
+                    margin: auto;
+                }
+
+            }
+        }
+
+        .why {
+
+
+
+            p {
+                text-align: center;
+                line-height: 2;
+            }
+        }
+    }
+
+    #exp {
+
+        nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            gap: 2rem;
+
+            a {
+                text-decoration: none;
+                font-size: 1.5rem;
+            }
+
+            a:hover {
+
+                color: #D37204;
+                text-decoration: underline !important;
+                text-underline-offset: 6px;
+            }
+
+            a.active {
+                color: #D37204;
+            }
+
+
+        }
+
+        .exp {
+            text-align: center;
+            line-height: 2;
+            width: 90%;
+
+            .date {
+                font-style: italic;
+            }
+        }
+
+        .study {
+
+            display: none;
+            text-align: center;
+            width: 90%;
+
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        ul {
+            list-style: none;
+
+            li {
+                margin: 1rem 0;
+                line-height: 2;
+            }
+
+        }
+    }
+
+    #skill {
+
+
+        nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 3rem;
+
+            a {
+                text-decoration: none;
+                font-size: 1.5rem;
+            }
+
+            a:hover {
+
+                color: #D37204;
+                text-decoration: underline !important;
+                text-underline-offset: 6px;
+            }
+
+            a.active {
+                color: #D37204;
+            }
+
+
+        }
+
+        ul {
+            list-style: none;
+
+            li {
+                margin: 1rem 0;
+                line-height: 2;
+            }
+
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        .front,
+        .back,
+        .other {
+            text-align: center;
+        }
+
+    }
+
+    #contact {
+
+        .phone,
+        .mail {
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+
+            a {
+                margin: 1.5rem 0;
+                text-decoration: none;
+                font-size: 1rem;
+            }
+        }
+
+    }
+
+    footer {
+
+        background-color: #6e4d17;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .social {
+            display: flex;
+            flex-direction: row;
+
+        }
+
+        a {
+
+            img {
+                height: 8rem;
+                width: 8rem;
+            }
+        }
+
+
+        .mail {
+            margin: 1rem 0;
+        }
+
+        p {
+            font-size: 0.8rem;
+            margin: 0.5rem 0;
+        }
+    }
+
+}
+
+@media screen and (min-width : 600px) {
+
+    body {
+
+        #aboutMe {
+
+            width: 90%;
+            margin: auto;
+            margin-top: 2rem;
+
+            .card {
+                height: 100%;
+                width: 70%;
+                padding: 1rem;
+            }
+
+        }
+    }
+}
+
+@media screen and (min-width : 800px) {
+
+
+
+    body {
+
+
+        .welcome {
+
+            .picOfMe {
+                height: 20rem;
+                width: 25rem;
+            }
+        }
+
+        h2 {
+            font-size: 2.5rem;
+        }
+
+        h3,
+        section a {
+            font-size: 2rem;
+        }
+
+        p,
+        li,
+        a,
+        .yes,
+        .no,
+        .ok {
+            font-size: 1.5rem;
+        }
+
+        button {
+            width: 300px;
+        }
+
+        .ok {
+            width: 400px !important;
+            padding: 2rem;
+        }
+
+
+
+        #exp,
+        #skill {
+
+            nav {
+
+                a {
+                    font-size: 2rem;
+                    ;
+                }
+            }
+
+            .icon {
+                height: 60px;
+                width: 60px;
+            }
+        }
+
+
+        #aboutMe {
+
+
+            .card {
+                height: 100%;
+                width: 50%;
+                padding: 1rem;
+            }
+
+        }
+
+        #contact {
+
+            .phone,
+            .mail {
+
+                a {
+                    font-size: 2rem;
+                }
+            }
+        }
+
+        footer {
+            p {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+@media screen and (min-width : 1200px) {
+
+    body {
+
+        #aboutMe {
+
+
+            .card {
+                height: 100%;
+                width: 40%;
+                padding: 1rem;
+
+                .pic-container{
+                    height:12rem;
+                    width: 12rem;
+
+                    .picCard{
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+            }
+
+        }
+    }
+
+
+}
+
+@media screen and (min-width : 1400px) {
+
+    body {
+
+        h2 {
+            font-size: 2.5rem;
+        }
+
+        h3,
+        section a {
+            font-size: 2rem;
+        }
+
+        p,
+        li,
+        a,
+        .yes,
+        .no,
+        .ok {
+            font-size: 1.5rem;
+        }
+
+        button {
+            width: 300px;
+        }
+
+        .ok {
+            width: 400px !important;
+            padding: 2rem;
+        }
+
+
+
+        #exp,
+        #skill {
+
+            nav {
+
+                a {
+                    font-size: 2rem;
+                    ;
+                }
+            }
+
+            .icon {
+                height: 60px;
+                width: 60px;
+            }
+        }
+
+        #aboutMe {
+
+
+            .card {
+                height: 100%;
+                width: 40%;
+                padding: 1rem;
+            }
+
+        }
+
+        #contact {
+
+            .phone,
+            .mail {
+
+                a {
+                    font-size: 2rem;
+                }
+            }
+        }
+
+        footer {
+            p {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+@media screen and (min-width : 1600px) {
+
+    body {
+
+        #aboutMe {
+
+
+            .card {
+                height: 100%;
+                width: 30%;
+                padding: 1rem;
+
+                .picCard {
+
+                    height: 10rem;
+                    width: 10rem;
+                }
+            }
+
+        }
+    }
+}
