@@ -1,3 +1,5 @@
+// -------------------- SCROLL RESET --------------------
+
 // Empêche le navigateur de restaurer la position précédente
 window.history.scrollRestoration = "manual";
 
@@ -5,17 +7,19 @@ window.history.scrollRestoration = "manual";
 window.addEventListener('beforeunload', () => {
   window.scrollTo(0, 0);
 });
-//------------------------------------MODAL------------------------------------------
 
-const body = document.querySelector('body'); 
-const pic = document.querySelector('.picOfMe');
-const modal = document.querySelector('.welcome');
-const btnYes = document.getElementById('yes');
-const btnNo = document.getElementById('no');
-const btnOk = document.getElementById('ok');
-const text = document.getElementById('text');
+
+// -------------------- MODAL --------------------
+
+const body     = document.querySelector('body'); 
+const pic      = document.querySelector('.picOfMe');
+const modal    = document.querySelector('.welcome');
+const btnYes   = document.getElementById('yes');
+const btnNo    = document.getElementById('no');
+const btnOk    = document.getElementById('ok');
+const text     = document.getElementById('text');
 const question = document.getElementById('question');
-const title = document.getElementById('title');
+const title    = document.getElementById('title');
 
 // 👉 fonction pour ouvrir la modal + bloquer scroll
 function openModal() {
@@ -23,13 +27,16 @@ function openModal() {
   body.classList.add('no-scroll');
 }
 
-// 👉 fonction pour fermer la modal + réactiver scroll
+// 👉 fonction pour fermer la modal + réactiver scroll + lancer l’animation
 function closeModal() {
   modal.style.display = 'none';
   body.classList.remove('no-scroll');
+
+  // Lance l’effet d’écriture une fois la modal fermée
+  setTimeout(() => {
+    startTypewriter();
+  }, 100); // petit délai pour laisser respirer la transition
 }
-
-
 
 btnYes.addEventListener('click', (e) => {
   e.preventDefault();
@@ -50,7 +57,7 @@ btnNo.addEventListener('click', (e) => {
     pic.src = './images/chat.jpg';
     pic.alt = 'Image alternative d\' un chat triste après clic sur Non';
     pic.classList.remove('fade-out');
-  }, 500);
+  }, 200);
 });
 
 btnOk.addEventListener('click', (e) => {
@@ -58,12 +65,53 @@ btnOk.addEventListener('click', (e) => {
   closeModal(); 
 });
 
-
 window.addEventListener('load', openModal);
 
 
-//---------------------- POUR LA NAV DE MON PARCOURS --------------------------------------------
+// -------------------- MAGIC TEXT --------------------
 
+function startTypewriter() {
+  const aboutText = document.querySelector(".aboutText");
+  const paragraphs = aboutText.querySelectorAll("p");
+  
+  // Sauvegarde les textes et vide la zone (y compris le curseur existant)
+  const texts = Array.from(paragraphs).map(p => p.textContent.trim());
+  aboutText.innerHTML = "";
+
+  let pIndex = 0;
+  let charIndex = 0;
+
+  function typeWriter() {
+    if (pIndex < texts.length) {
+      if (!aboutText.children[pIndex]) {
+        aboutText.appendChild(document.createElement("p"));
+      }
+      let currentP = aboutText.children[pIndex];
+      let fullText = texts[pIndex];
+
+      if (charIndex < fullText.length) {
+        currentP.textContent += fullText.charAt(charIndex);
+        charIndex++;
+        setTimeout(typeWriter, 40); // vitesse par caractère
+      } else {
+        pIndex++;
+        charIndex = 0;
+        setTimeout(typeWriter, 400); // pause avant le paragraphe suivant
+      }
+    } else {
+      // Curseur clignotant à la fin
+      const lastP = aboutText.lastElementChild;
+      const cursor = document.createElement("span");
+      cursor.classList.add("cursor");
+      lastP.appendChild(cursor);
+    }
+  }
+
+  typeWriter();
+}
+
+
+// -------------------- NAV PARCOURS --------------------
 
 const linkExp   = document.getElementById('linkExp');
 const linkStudy = document.getElementById('linkStudy');
@@ -84,7 +132,6 @@ function showSection(section) {
   }
 }
 
-
 linkExp.addEventListener('click', (e) => {
   e.preventDefault();
   showSection('exp');
@@ -98,7 +145,7 @@ linkStudy.addEventListener('click', (e) => {
 showSection('exp');
 
 
-// ---------------------------- POUR LA NAV DES COMPETENCES-------------------------------------------------
+// -------------------- NAV COMPÉTENCES --------------------
 
 const linkFront = document.getElementById('linkFront');
 const linkBack  = document.getElementById('linkBack');
@@ -109,7 +156,6 @@ const divBack   = document.querySelector('#skill .back');
 const divOther  = document.querySelector('#skill .other');
 
 function showSectionSkill(section) {
-
   if (section === 'front') {
     divFront.style.display = 'block';
     divBack.style.display = 'none';
@@ -151,6 +197,3 @@ linkOther.addEventListener('click', (e) => {
 
 // affiché par défaut
 showSectionSkill('front');
-
-
-

@@ -13,7 +13,7 @@
   font-size: 60px;
   right: 20px;
   text-decoration: none;
-  color: white;
+  color: #1ed760;
   z-index: 2;
   position: absolute;
 }
@@ -22,20 +22,22 @@
 .burger-nav {
   top: 60px; /* sous le header */
   width: 100%;
-  background: #61410D;
+  background: #0B1D2E;
   text-align: center;
   padding: 20px;
   transition: transform 0.5s ease, opacity 0.5s ease;
   transform: translateY(-300px);
   opacity: 0;
   pointer-events: none;
+  border-top: 2px solid #1ed760;
+  border-bottom: 2px solid #1ed760;
 }
 
 .burger-nav a {
   display: block;
   padding: 10px;
   text-decoration: none;
-  color: white;
+  color: #1ed760;
 }
 
 .burger-nav a:hover {
@@ -127,22 +129,24 @@ body .scroll-haut {
   bottom: 30px;
   right: 20px;
   font-size: 30px;
-  background-color: #61410D;
-  color: #D37204 !important;
+  background-color: #0B1D2E;
+  color: #1ed760 !important;
   width: 50px;
   height: 50px;
   border-radius: 1rem;
   text-align: center;
-  border: 3px solid #D37204;
+  border: 3px solid #1ed760;
   animation: fade;
   animation-timeline: scroll(y);
   animation-range: 0 10%;
 }
 body header {
-  background-color: #6e4d17;
-  position: relative;
-  padding: 10px 20px;
-  width: 100%;
+  background-color: #0B1D2E;
+  color: #1ed760;
+  text-align: center;
+  padding: 20px;
+  border-top: 2px solid #1ed760;
+  border-bottom: 2px solid #1ed760;
 }
 body header h1 {
   font-size: 3rem;
@@ -160,7 +164,7 @@ body .welcome {
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  background-color: rgba(97, 65, 13, 0.8);
+  background-color: rgba(15, 39, 66, 0.8);
   text-align: center;
 }
 body .welcome .picOfMe {
@@ -205,22 +209,44 @@ body section .subtitle {
   padding: 1rem;
   border-radius: 1rem;
   box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.4235294118);
-  background-color: #6e4d17;
+  background-color: #0B1D2E;
+  border: 2px solid #1ed760;
 }
 body .aboutTitle {
   width: 250px;
   padding: 1rem;
   border-radius: 1rem;
   box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.4235294118);
-  background-color: #6e4d17;
+  background-color: #0B1D2E;
+  border: 2px solid #1ed760;
   text-align: center;
   margin: auto;
   margin-top: 1rem;
 }
+body .aboutTitle h2 {
+  color: white;
+}
+body #aboutMe .cursor {
+  display: inline-block;
+  width: 10px;
+  height: 1em;
+  background-color: #1ed760;
+  margin-left: 2px;
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
 body #aboutMe .card {
   height: 200px;
   width: 90%;
-  background-color: #6e4d17;
+  background-color: #0B1D2E;
+  border: 2px solid #1ed760;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -239,7 +265,7 @@ body #aboutMe .card .aboutText {
   width: 45%;
 }
 body #aboutMe .card .aboutText p {
-  color: white;
+  color: #1ed760;
   margin-top: 0.5rem;
   margin: auto;
 }
@@ -340,10 +366,12 @@ body #contact .mail a {
   font-size: 1rem;
 }
 body footer {
-  background-color: #6e4d17;
+  background-color: #0B1D2E;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-top: 2px solid #1ed760;
+  border-bottom: 2px solid #1ed760;
 }
 body footer .social {
   display: flex;

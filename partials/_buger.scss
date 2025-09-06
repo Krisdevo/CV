@@ -12,7 +12,7 @@
     font-size: 60px;
     right: 20px;
     text-decoration: none;
-    color: white;
+    color: #1ed760;
     z-index: 2;
     position: absolute;
   }
@@ -22,20 +22,22 @@
 
     top: 60px; /* sous le header */
     width: 100%;
-    background: #61410D;
+    background: #0B1D2E;
     text-align: center;
     padding: 20px;
     transition: transform 0.5s ease, opacity 0.5s ease;
     transform: translateY(-300px);
     opacity: 0;
     pointer-events: none;
+    border-top: 2px solid #1ed760;
+    border-bottom: 2px solid #1ed760;
   }
 
   .burger-nav a {
     display: block;
     padding: 10px;
     text-decoration: none;
-    color: white;
+    color: #1ed760;
   }
 
   .burger-nav a:hover{
